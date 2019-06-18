@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Reorder Paths for Speed</_name>
+  <id>command.evilmadscientist.axidraw.reorder</id>
+  <dependency type="executable" location="extensions">axidraw_svg_reorder.py</dependency>
+  <dependency type="executable" location="extensions">inkex.py</dependency>
+
+
+<_param indent="1" name="splashpage" type="description" 
+appearance="header">AxiDraw Path Reordering Tool</_param>
+
+
+<_param name="Header" type="description" xml:space="preserve">
+This tool will reorder paths within each layer,
+to reduce pen-up travel distance and time.
+
+Version 2.0
+
+Copyright 2019, Evil Mad Scientist
+</_param>
+
+<param name="reordering" _gui-text="Group Handling" type="optiongroup">
+<_option value="2">Reorder within groups</_option>
+<_option value="1">Preserve groups</_option>
+<_option value="3">Break apart groups</_option>
+</param>
+
+<effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu _name="AxiDraw Utilities"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">axidraw_svg_reorder.py</command>
+  </script>
+</inkscape-extension>
